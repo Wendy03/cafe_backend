@@ -1,0 +1,48 @@
+<template>
+  <div class="row justify-content-center py-5">
+    <div class="col-8">
+      <template v-for="article in articles" :key="article.id">
+        <div class="col" v-if="article.isPublic">
+          <div class="card">
+            <img :src="article.imageUrl" class="card-img-top" />
+            <div class="card-body">
+              <h5 class="card-title">{{ article.title }}</h5>
+              <div v-html="article.description"></div>
+            </div>
+            <div class="card-footer">
+              <a
+                href="#"
+                v-if="article.isPublic"
+                class="btn btn-outline-primary"
+              >
+                READ MORE
+              </a>
+            </div>
+          </div>
+        </div>
+      </template>
+    </div>
+  </div>
+</template>
+
+<script>
+import { mapState, mapActions } from 'pinia';
+import articlesStore from '@/stores/frontend/articlesStore';
+import statusStore from '@/stores/statusStore';
+
+export default {
+  data() {
+    return {};
+  },
+  methods: {
+    ...mapActions(articlesStore, ['getArticles']),
+  },
+  computed: {
+    ...mapState(articlesStore, ['articles']),
+    ...mapState(statusStore, ['isLoading', 'isProcessing']),
+  },
+  mounted() {
+    this.getArticles();
+  },
+};
+</script>
