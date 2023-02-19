@@ -1,0 +1,27 @@
+.logo {
+  background: url('assets/logo.png') center no-repeat;
+  display: block;
+  width: 128px;
+  height: 48px;
+  text-indent: 101%;
+  overflow: hidden;
+  white-space: nowrap;
+  background-size: contain;
+}
+
+.banner {
+  &-img {
+    min-height: 85vh;
+    width: 100%;
+    background: url('assets/banner.png') center no-repeat;
+    background-size: cover;
+  }
+}
+
+.subscribe {
+  background: url('assets/subscribe.png') center no-repeat;
+  display: block;
+  width: 100%;
+  min-height: 40vh;
+  background-size: cover;
+}
