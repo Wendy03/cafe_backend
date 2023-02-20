@@ -5,7 +5,6 @@
     <AboutCard></AboutCard>
     <HomeCategory></HomeCategory>
     <SubscribeCard></SubscribeCard>
-    <FooterCard></FooterCard>
   </div>
 </template>
 
@@ -15,7 +14,6 @@ import SelectCardVue from '@/components/frontend/SelectCard.vue';
 import AboutCard from '@/components/frontend/AboutCard.vue';
 import HomeCategory from '@/components/frontend/HomeCategory.vue';
 import SubscribeCard from '@/components/frontend/SubscribeCard.vue';
-import FooterCard from '@/components/frontend/FooterCard.vue';
 
 export default {
   data() {
@@ -28,7 +26,6 @@ export default {
     AboutCard,
     HomeCategory,
     SubscribeCard,
-    FooterCard,
   },
 };
 </script>

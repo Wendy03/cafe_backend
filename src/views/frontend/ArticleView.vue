@@ -1,5 +1,5 @@
 <template>
-  <div class="container mt-5">
+  <div class="container my-5">
     <ArticleCard></ArticleCard>
   </div>
 </template>

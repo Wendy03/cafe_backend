@@ -4,7 +4,7 @@
       <template v-for="article in articles" :key="article.id">
         <div class="col" v-if="article.isPublic">
           <div class="card">
-            <img :src="article.imageUrl" class="card-img-top" />
+            <img :src="article.imageUrl" class="card-img-top img-fluid" style="height: 60vh"/>
             <div class="card-body">
               <h5 class="card-title">{{ article.title }}</h5>
               <div v-html="article.description"></div>

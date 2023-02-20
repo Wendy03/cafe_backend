@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="vh-100">
     <VueLoading v-model:active="isLoading"></VueLoading>
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb">

@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container my-5">
     <div class="row justify-content-center">
       <div
         class="col-md-6 py-5"
