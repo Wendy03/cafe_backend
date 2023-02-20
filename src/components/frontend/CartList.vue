@@ -1,13 +1,12 @@
 <template>
   <div>
     <div v-if="cart.carts?.length">
-      <button
-      type="button"
-      class="btn btn-outline-danger"
-      @click="deleteAllCarts"
-    >
-      清空購物車
-    </button>
+      <div class="d-flex justify-content-between mb-5">
+        <h2 class="mt-2 text-brown font-weight-bold">購物車</h2>
+        <a href="#" class="fs-3" @click.prevent="deleteAllCarts">
+         <i class="bi bi-x-lg"></i>
+        </a>
+      </div>
       <div
         v-for="item in cart.carts"
         :key="item.id"
@@ -79,13 +78,17 @@
         <p class="mb-0 h4 fw-bold">總計</p>
         <p class="mb-0 h4 fw-bold">NT${{ cart.final_total }}</p>
       </div>
-      <RouterLink to="/order" class="btn btn-primary btn-block mt-4 rounded-0 py-3"
+      <RouterLink
+        to="/order"
+        class="btn btn-primary btn-block mt-4 rounded-0 py-3"
         >確認訂單</RouterLink
       >
     </div>
     <div v-else>
-      <h4 class="mt-5">尚無資料</h4>
-      <RouterLink class="btn btn-secondary mt-5" to="/products">選購去</RouterLink>
+      <h4 class="mt-5">購物車無商品，快去逛逛</h4>
+      <RouterLink class="btn btn-primary mt-5" to="/products"
+        >選購去</RouterLink
+      >
     </div>
   </div>
 </template>

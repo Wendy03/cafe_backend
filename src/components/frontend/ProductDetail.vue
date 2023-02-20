@@ -1,12 +1,21 @@
 <template>
-  <VueLoading v-model:active="isLoading"></VueLoading>
-  <div class="mt-5">
-    <h2>{{ product.title }}</h2>
+  <div>
+    <VueLoading v-model:active="isLoading"></VueLoading>
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <router-link to="/products">全部商品</router-link>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">
+          {{ product.title }}
+        </li>
+      </ol>
+    </nav>
+    <h2 class="mb-3">{{ product.title }}</h2>
     <div class="row">
       <div class="col-sm-5">
         <div
-          style="
-            min-height: 50vh;
+          style="min-height: 50vh;
             background-size: cover;
             background-position: center;
           "
@@ -34,12 +43,18 @@
         <p>商品描述：{{ product.description }}</p>
         <p v-if="product.content">商品內容：{{ product.content }}</p>
         <template v-if="product.category !== '周邊商品'">
-          <p>產地：{{ product.country }}</p>
-          <p>產區：{{ product.area }}</p>
-          <p>處理方法：{{ product.production }}</p>
+          <ul>
+            <li>產地：{{ product.country }}</li>
+            <li>產區：{{ product.area }}</li>
+            <li>處理方法：{{ product.production }}</li>
+            <li>熟豆重量：227g ± 2g</li>
+            <li>保存期限：30 天</li>
+          </ul>
         </template>
-        <div class="h5">{{ product.price }} 元 / {{ product.unit }}</div>
-        <div class="input-group mt-5">
+        <div class="h5">
+          {{ $filters.currency(product.price) }} 元 / {{ product.unit }}
+        </div>
+        <div class="input-group mt-5 w-75">
           <select class="form-select" name="qty" v-model.number="qty">
             <option :value="num" v-for="num in 5" :key="num + 'num'">
               {{ num }}
@@ -93,7 +108,7 @@ export default {
           this.product = product;
         })
         .catch((err) => {
-          const errMessage = err.data?.message;
+          const errMessage = err.response?.data?.message || '資料錯誤';
           this.isLoading = false;
           Toast.fire({
             title: `${errMessage}`,

@@ -5,9 +5,6 @@
         class="col-md-6 py-5"
         style="min-height: calc(100vh - 56px - 76px)"
       >
-        <div class="d-flex justify-content-between">
-          <h2 class="mt-2">購物車</h2>
-        </div>
         <CartList></CartList>
       </div>
     </div>

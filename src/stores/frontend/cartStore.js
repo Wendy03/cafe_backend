@@ -21,10 +21,11 @@ export default defineStore('cart', {
           status.isLoading = false;
           this.cart = data;
         })
-        .catch(() => {
+        .catch((err) => {
           status.isLoading = false;
+          const errMessage = err.response?.data?.message || '資料錯誤';
           Toast.fire({
-            title: '無法取得資料，稍後再試',
+            title: `${errMessage}`,
             icon: 'error',
           });
         });
@@ -46,10 +47,11 @@ export default defineStore('cart', {
           });
           this.getCarts();
         })
-        .catch(() => {
+        .catch((err) => {
           status.loadingItem = '';
+          const errMessage = err.response?.data?.message || '資料錯誤';
           Toast.fire({
-            title: '無法取得資料，稍後再試',
+            title: `${errMessage}`,
             icon: 'error',
           });
         });
@@ -71,10 +73,11 @@ export default defineStore('cart', {
           });
           this.getCarts();
         })
-        .catch(() => {
+        .catch((err) => {
           status.loadingItem = '';
+          const errMessage = err.response?.data?.message || '資料錯誤';
           Toast.fire({
-            title: '無法取得資料，稍後再試',
+            title: `${errMessage}`,
             icon: 'error',
           });
         });
@@ -92,10 +95,11 @@ export default defineStore('cart', {
           });
           this.getCarts();
         })
-        .catch(() => {
+        .catch((err) => {
           status.loadingItem = '';
+          const errMessage = err.response?.data?.message || '資料錯誤';
           Toast.fire({
-            title: '無法刪除資料，稍後再試',
+            title: `${errMessage}`,
             icon: 'error',
           });
         });
@@ -113,10 +117,36 @@ export default defineStore('cart', {
           });
           this.getCarts();
         })
-        .catch(() => {
+        .catch((err) => {
+          const errMessage = err.response?.data?.message || '資料錯誤';
           status.isProcessing = false;
           Toast.fire({
-            title: '無法刪除資料，稍後再試',
+            title: `${errMessage}`,
+            icon: 'error',
+          });
+        });
+    },
+    addCouponCode(couponCode) {
+      const coupon = {
+        code: couponCode,
+      };
+      status.isProcessing = true;
+      axios
+        .post(`${VITE_API}/api/${VITE_PATH}/coupon`, { data: coupon })
+        .then((res) => {
+          status.isProcessing = false;
+          const { message } = res.data;
+          Toast.fire({
+            title: `${message}`,
+            icon: 'success',
+          });
+          this.getCarts();
+        })
+        .catch((err) => {
+          const errMessage = err.response?.data?.message || '資料錯誤';
+          status.isProcessing = false;
+          Toast.fire({
+            title: `${errMessage}`,
             icon: 'error',
           });
         });

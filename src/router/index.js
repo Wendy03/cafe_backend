@@ -32,7 +32,7 @@ const routes = [
         component: () => import('../views/frontend/OrderView.vue'),
       },
       {
-        path: '/checkout',
+        path: '/checkout/:orderId',
         name: 'checkout',
         component: () => import('../views/frontend/CheckoutView.vue'),
       },
@@ -40,6 +40,11 @@ const routes = [
         path: '/articles',
         name: 'articles',
         component: () => import('../views/frontend/ArticlesView.vue'),
+      },
+      {
+        path: '/article/:id',
+        name: 'article',
+        component: () => import('../views/frontend/ArticleView.vue'),
       },
     ],
   },
@@ -80,6 +85,9 @@ const routes = [
 const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),
   linkActiveClass: 'active',
+  scrollBehavior() {
+    return { top: 0 };
+  },
   routes,
 });
 

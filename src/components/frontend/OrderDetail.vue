@@ -1,6 +1,6 @@
 <template>
   <div class="col-md-4">
-    <div class="border p-4 mb-4">
+    <div class="border p-4 mb-4 bg-light">
       <div v-for="item in cart.carts" :key="item.id" class="d-flex mb-2">
         <img
           :src="item.product.imageUrl"
@@ -32,6 +32,23 @@
           </tr>
         </tbody>
       </table>
+      <div class="input-group mb-3 input-group-sm">
+        <input
+          type="text"
+          class="form-control"
+          v-model="coupon_code"
+          placeholder="請輸入優惠碼"
+        />
+        <div class="input-group-append">
+          <button
+            class="btn btn-outline-primary"
+            type="button"
+            @click="addCouponCode(coupon_code)"
+          >
+            套用優惠碼
+          </button>
+        </div>
+      </div>
       <div class="d-flex justify-content-between mt-4">
         <p class="mb-0 h4 fw-bold">總計</p>
         <p class="mb-0 h4 fw-bold">NT${{ cart.final_total }}</p>
@@ -46,10 +63,12 @@ import cartStore from '@/stores/frontend/cartStore';
 
 export default {
   data() {
-    return {};
+    return {
+      coupon_code: '',
+    };
   },
   methods: {
-    ...mapActions(cartStore, ['getCarts']),
+    ...mapActions(cartStore, ['getCarts', 'addCouponCode']),
   },
   computed: {
     ...mapState(cartStore, ['cart']),

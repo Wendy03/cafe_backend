@@ -10,13 +10,12 @@
               <div v-html="article.description"></div>
             </div>
             <div class="card-footer">
-              <a
-                href="#"
+              <router-link
+                :to="`/article/${article.id}`"
                 v-if="article.isPublic"
-                class="btn btn-outline-primary"
               >
                 READ MORE
-              </a>
+              </router-link>
             </div>
           </div>
         </div>

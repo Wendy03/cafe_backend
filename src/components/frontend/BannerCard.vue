@@ -2,7 +2,7 @@
   <div class="banner">
     <div class="banner-img d-flex align-items-center">
       <div class="container d-flex flex-column">
-        <h2 class="text-white ms-5">
+        <h2 class="text-white ms-5 mb-5">
           來自世界各地的豆子<br />為您帶來一杯獨一無二的咖啡
         </h2>
         <div>

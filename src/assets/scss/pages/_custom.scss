@@ -9,6 +9,10 @@
   background-size: contain;
 }
 
+.card-container{
+  min-height: calc(100vh - 56px - 76px);
+}
+
 .banner {
   &-img {
     min-height: 85vh;

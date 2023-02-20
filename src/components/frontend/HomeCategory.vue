@@ -5,7 +5,7 @@
       <div class="row">
         <div class="col-lg-4 my-4">
           <div class="card border-0 mb-4 h-100">
-            <a href="#">
+            <a href="#" @click.prevent="toCategory('淺焙咖啡')">
               <div
                 style="
                   height: 300px;
@@ -17,7 +17,7 @@
               ></div>
             </a>
             <div class="card-body p-0">
-              <h4 class="mb-0 mt-4 text-dark text-center">淺焙咖啡豆</h4>
+              <h4 class="mb-0 mt-4 text-dark text-center">淺焙咖啡</h4>
               <div class="d-flex justify-content-center mt-3">
                 <p class="card-text text-muted mb-0 w-75">
                   果酸味強烈，明亮度高，依豆子的種植地其酸味會略有不同
@@ -28,7 +28,7 @@
         </div>
         <div class="col-lg-4 my-4">
           <div class="card border-0 mb-4 h-100">
-            <a href="#">
+            <a href="#" @click.prevent="toCategory('中焙咖啡')">
               <div
                 style="
                   height: 300px;
@@ -40,7 +40,7 @@
               ></div>
             </a>
             <div class="card-body p-0">
-              <h4 class="mb-0 mt-4 text-dark text-center">中焙咖啡豆</h4>
+              <h4 class="mb-0 mt-4 text-dark text-center">中焙咖啡</h4>
               <div class="d-flex justify-content-center mt-3">
                 <p class="card-text text-muted mb-0 w-75">
                   少許活潑香氣、沉穩的堅果、可可，平衡的酸甜比
@@ -51,7 +51,7 @@
         </div>
         <div class="col-lg-4 my-4">
           <div class="card border-0 mb-4 h-100">
-            <a href="#">
+            <a href="#" @click.prevent="toCategory('深焙咖啡')">
               <div
                 style="
                   height: 300px;
@@ -63,7 +63,7 @@
               ></div>
             </a>
             <div class="card-body p-0">
-              <h4 class="mb-0 mt-4 text-dark text-center">深焙咖啡豆</h4>
+              <h4 class="mb-0 mt-4 text-dark text-center">深焙咖啡</h4>
               <div class="d-flex justify-content-center mt-3">
                 <p class="card-text text-muted mb-0 w-75">
                   焦苦風味與濃郁厚實的口感
@@ -78,9 +78,19 @@
 </template>
 
 <script>
+import productsStore from '@/stores/frontend/productsStore';
+
+const store = productsStore();
+
 export default {
   data() {
     return {};
+  },
+  methods: {
+    toCategory(Name) {
+      store.changeCategory(Name);
+      this.$router.push('/products');
+    },
   },
 };
 </script>

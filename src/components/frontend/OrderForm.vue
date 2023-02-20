@@ -72,17 +72,24 @@
           v-model="form.message"
         ></textarea>
       </div>
-      <router-link to="/cart" class="text-dark mt-md-0 mt-3"
-        ><i class="fas fa-chevron-left me-2"></i>回購物車</router-link
+      <div
+        class="d-flex flex-column-reverse flex-md-row mt-4
+        justify-content-between align-items-md-center align-items-end"
       >
-      <div class="text-end">
-        <button
-          type="submit"
-          class="btn btn-primary"
-          :disabled="isProcessing"
-        >
-          送出訂單
-        </button>
+        <div>
+          <router-link to="/cart" class="text-dark mt-6"
+            ><i class="fas fa-chevron-left me-2"></i>回購物車</router-link
+          >
+        </div>
+        <div class="text-end">
+          <button
+            type="submit"
+            class="btn btn-primary"
+            :disabled="isProcessing"
+          >
+            送出訂單
+          </button>
+        </div>
       </div>
     </v-form>
   </div>
@@ -115,14 +122,14 @@ export default {
       this.$http
         .post(`${VITE_API}/api/${VITE_PATH}/order`, { data: order })
         .then((res) => {
-          const { message } = res.data;
+          const { message, orderId } = res.data;
           this.isProcessing = false;
           this.$refs.form.resetForm();
           Toast.fire({
             title: `${message}`,
             icon: 'success',
           });
-          this.$router.push('/checkout');
+          this.$router.push(`/checkout/${orderId}`);
         })
         .catch(() => {
           this.isProcessing = false;

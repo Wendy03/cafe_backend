@@ -1,6 +1,6 @@
 <template>
   <div class="col-md-2 mb-2 my-5">
-    <ul class="list-group sticky-top">
+    <ul class="list-group">
       <li
         class="list-group-item"
         v-for="category in categories"

@@ -7,13 +7,15 @@
         :key="product.id"
       >
         <div class="card border-0 shadow-sm h-100">
-          <div
-            style="height: 170px;
-              background-size: cover;
-              background-position: center;
-            "
-            :style="{ backgroundImage: `url(${product.imageUrl})` }"
-          ></div>
+          <router-link :to="`/product/${product.id}`">
+            <div
+              style="height: 170px;
+                background-size: cover;
+                background-position: center;
+              "
+              :style="{ backgroundImage: `url(${product.imageUrl})` }"
+            ></div>
+          </router-link>
           <div class="card-body">
             <span class="badge bg-primary float-right ml-2">
               {{ product.category }}
@@ -22,7 +24,9 @@
               <a href="#" class="text-dark">{{ product.title }}</a>
             </h5>
             <p class="card-text">{{ product.description }}</p>
-            <div class="text-right pr-2">{{ product.price }} 元</div>
+            <div class="text-right pr-2">
+              {{ $filters.currency(product.price) }} 元
+            </div>
           </div>
           <div class="card-footer d-flex">
             <router-link
