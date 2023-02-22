@@ -1,6 +1,8 @@
 <template>
   <NavBar></NavBar>
-  <router-view></router-view>
+  <div class="ec-container">
+    <router-view></router-view>
+  </div>
   <FooterCard></FooterCard>
 </template>
 

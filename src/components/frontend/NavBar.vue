@@ -1,5 +1,5 @@
 <template>
-  <div class="sticky-top">
+  <div class="fixed-top">
     <div id="nav">
       <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
         <div class="container position-relative">
