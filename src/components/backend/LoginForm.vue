@@ -58,7 +58,7 @@ export default {
         .then((res) => {
           if (res.data.success) {
             const { token, expired, message } = res.data;
-            document.cookie = `hexToken=${token}; expires=${expired}`;
+            document.cookie = `hexToken=${token}; expires=${expired}; path=/`;
             this.$router.push('/admin/products');
             Toast.fire({
               title: `${message}`,
