@@ -55,27 +55,33 @@
 
               <hr />
               <p class="mb-3 h4 pt-4">多圖新增</p>
-              <template v-if="Array.isArray(tempProduct.imagesUrl)">
+              <div class="mt-5" v-if="tempProduct.imagesUrl">
                 <div
-                  class="mb-1"
                   v-for="(image, key) in tempProduct.imagesUrl"
-                  :key="`${key}img`"
+                  class="mb-3"
+                  :key="key"
                 >
-                  <div class="mb-3">
-                    <label for="imageUrl" class="form-label">圖片網址</label>
-                    <input
-                      v-model="tempProduct.imagesUrl[key]"
-                      type="text"
-                      class="form-control"
-                      placeholder="請輸入圖片連結"
-                    />
+                  <input
+                    type="url"
+                    class="form-control form-control"
+                    v-model="tempProduct.imagesUrl[key]"
+                    placeholder="請輸入連結"
+                  />
+                  <div>
+                    <img class="img-fluid" :src="image"/>
                   </div>
-                  <img class="img-fluid" :src="image" />
+                  <button
+                    type="button"
+                    class="btn btn-outline-danger"
+                    @click="tempProduct.imagesUrl.splice(key, 1)"
+                  >
+                    移除
+                  </button>
                 </div>
                 <div
                   v-if="
-                    !tempProduct.imagesUrl.length ||
-                    tempProduct.imagesUrl[tempProduct.imagesUrl.length - 1]
+                    tempProduct.imagesUrl[tempProduct.imagesUrl.length - 1] ||
+                    !tempProduct.imagesUrl.length
                   "
                 >
                   <button
@@ -85,22 +91,6 @@
                     新增圖片
                   </button>
                 </div>
-                <div v-else>
-                  <button
-                    class="btn btn-outline-danger btn-sm d-block w-100"
-                    @click="tempProduct.imagesUrl.pop()"
-                  >
-                    刪除圖片
-                  </button>
-                </div>
-              </template>
-              <div v-else>
-                <button
-                  class="btn btn-outline-primary btn-sm d-block w-100"
-                  @click="createImages"
-                >
-                  新增圖片
-                </button>
               </div>
             </div>
             <div class="col-sm-8">
@@ -310,6 +300,12 @@ export default {
   watch: {
     product() {
       this.tempProduct = this.product;
+      if (!this.tempProduct.imagesUrl) {
+        this.tempProduct.imagesUrl = [];
+      }
+      if (!this.tempProduct.imageUrl) {
+        this.tempProduct.imageUrl = '';
+      }
     },
   },
   methods: {
