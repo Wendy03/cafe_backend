@@ -163,10 +163,6 @@ export default {
           });
         });
     },
-    createImages() {
-      this.product.imagesUrl = [];
-      this.product.imagesUrl.push('');
-    },
     delProduct() {
       this.isProcessing = true;
       this.$http
