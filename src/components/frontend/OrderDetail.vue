@@ -1,5 +1,5 @@
 <template>
-  <div class="col-md-4">
+  <div class="col-lg-4">
     <div class="border p-4 mb-4 bg-light">
       <div v-for="item in cart.carts" :key="item.id" class="d-flex mb-2">
         <img

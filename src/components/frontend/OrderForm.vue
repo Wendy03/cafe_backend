@@ -1,5 +1,5 @@
 <template>
-  <div class="col-md-6">
+  <div class="col-lg-6">
     <h3 class="mb-3">客戶資訊</h3>
     <v-form ref="form" v-slot="{ errors }" @submit="createOrder">
       <div class="mb-3">
@@ -73,8 +73,7 @@
         ></textarea>
       </div>
       <div
-        class="d-flex flex-column-reverse flex-md-row mt-4
-        justify-content-between align-items-md-center align-items-end"
+        class="d-flex mt-4 justify-content-between align-items-md-center align-items-end w-100"
       >
         <div>
           <router-link to="/cart" class="text-dark mt-6"

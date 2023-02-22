@@ -1,21 +1,31 @@
 <template>
   <div class="row justify-content-center py-5">
-    <div class="col-8">
+    <div class="col-lg-8">
       <template v-for="article in articles" :key="article.id">
-        <div class="col" v-if="article.isPublic">
-          <div class="card">
-            <img :src="article.imageUrl" class="card-img-top img-fluid" style="height: 60vh"/>
-            <div class="card-body">
-              <h5 class="card-title">{{ article.title }}</h5>
-              <div v-html="article.description"></div>
+        <div v-if="article.isPublic" class="card mb-3">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <img
+                :src="article.imageUrl"
+                class="img-fluid rounded-start h-100"
+                :alt="article.title"
+              />
             </div>
-            <div class="card-footer">
-              <router-link
-                :to="`/article/${article.id}`"
-                v-if="article.isPublic"
-              >
-                READ MORE
-              </router-link>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title">{{ article.title }}</h5>
+                <div class="card-text">
+                  <div v-html="article.description"></div>
+                </div>
+                <div class="text-end mt-5">
+                  <router-link
+                    :to="`/article/${article.id}`"
+                    v-if="article.isPublic"
+                  >
+                    READ MORE
+                  </router-link>
+                </div>
+              </div>
             </div>
           </div>
         </div>

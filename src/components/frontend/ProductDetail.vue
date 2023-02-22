@@ -1,5 +1,6 @@
 <template>
-  <div class="vh-100">
+  <VueLoading v-model:active="isLoading"></VueLoading>
+  <div v-if="product.imageUrl">
     <VueLoading v-model:active="isLoading"></VueLoading>
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb">
@@ -77,35 +78,98 @@
       </div>
     </div>
   </div>
+  <hr />
+  <template v-if="relativeProduct.length">
+    <h3 class="mt-7">相關商品</h3>
+    <div>
+      <swiper
+        :slidesPerView="1"
+        :spaceBetween="10"
+        :pagination="{
+          clickable: true,
+        }"
+        :breakpoints="{
+          425: {
+            slidesPerView: 1,
+            spaceBetween: 10,
+          },
+          768: {
+            slidesPerView: 4,
+            spaceBetween: 10,
+          },
+        }"
+        :modules="modules"
+        class="mySwiper"
+      >
+        <swiper-slide v-for="item in relativeProduct" :key="item.id">
+          <div class="card h-100">
+            <div
+              style="
+                min-height: 200px;
+                background-size: cover;
+                background-position: center;
+                cursor: pointer;
+              "
+              :style="{ backgroundImage: `url(${item.imageUrl})` }"
+              @click.prevent="toggleId(item.id)"
+            ></div>
+            <div class="card-body">
+              <h6 class="card-title">
+                {{ item.title }}
+              </h6>
+              <div class="text-right pr-2">{{ item.price }} 元</div>
+            </div>
+          </div>
+        </swiper-slide>
+      </swiper>
+    </div>
+  </template>
 </template>
 
 <script>
-import { mapState, mapActions } from 'pinia';
-import Toast from '@/utils/Toast';
 import cartStore from '@/stores/frontend/cartStore';
+import productsStore from '@/stores/frontend/productsStore';
 import statusStore from '@/stores/statusStore';
+import Toast from '@/utils/Toast';
+import { mapActions, mapState } from 'pinia';
+import { Swiper, SwiperSlide } from 'swiper/vue';
+import { Pagination } from 'swiper';
+
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/pagination';
 
 const { VITE_API, VITE_PATH } = import.meta.env;
 
 export default {
   data() {
     return {
+      id: '',
+      modules: [Pagination],
       product: {},
+      relativeProduct: [],
       qty: 1,
       isProcessing: false,
       isLoading: false,
     };
   },
+  components: {
+    Swiper,
+    SwiperSlide,
+  },
   methods: {
+    ...mapActions(productsStore, ['getProducts']),
+    ...mapActions(cartStore, ['addToCart']),
     getProduct() {
       this.isLoading = true;
-      const { id } = this.$route.params;
+      // const { id } = this.$route.params;
       this.$http
-        .get(`${VITE_API}/api/${VITE_PATH}/product/${id}`)
+        .get(`${VITE_API}/api/${VITE_PATH}/product/${this.id}`)
         .then((res) => {
           this.isLoading = false;
           const { product } = res.data;
           this.product = product;
+          this.getRelative();
         })
         .catch((err) => {
           const errMessage = err.response?.data?.message || '資料錯誤';
@@ -116,10 +180,25 @@ export default {
           });
         });
     },
-    ...mapActions(cartStore, ['addToCart']),
+    getRelative() {
+      const { category, id } = this.product;
+      this.relativeProduct = this.products.filter((item) => item.category === category
+      && item.id !== id);
+    },
+    toggleId(id) {
+      this.$router.push(`/product/${id}`);
+      this.id = id;
+      this.getProduct();
+    },
   },
   computed: {
     ...mapState(statusStore, ['loadingItem']),
+    ...mapState(productsStore, ['products']),
+  },
+  created() {
+    const { id } = this.$route.params;
+    this.id = id;
+    this.getProducts();
   },
   mounted() {
     this.getProduct();

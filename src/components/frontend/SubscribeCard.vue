@@ -1,7 +1,7 @@
 <template>
   <div class="subscribe">
-    <div class="container pt-7">
-      <div class="row">
+    <div class="container py-7">
+      <div class="row justify-content-between py-3">
         <div class="col-lg-6">
           <h2 class="text-light fs-md-2 fs-4">訂閱獲取優惠卷 & 最新商品</h2>
           <div class="input-group mb-3">
@@ -11,12 +11,12 @@
               class="form-control"
               placeholder="請輸入 Email"
               aria-label="請輸入 Email"
-              aria-describedby="subcribe"
+              aria-describedby="subscribe"
             />
             <button
               class="btn btn-secondary"
               type="button"
-              id="subcribe"
+              id="subscribe"
               @click="subscription"
             >
               訂閱

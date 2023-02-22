@@ -34,7 +34,7 @@
             <div class="input-group w-50 align-items-center">
               <div class="input-group-prepend pe-1">
                 <button
-                  class="btn btn-primary"
+                  class="btn btn-primary btn-sm"
                   @click.prevent="updateCart(item, item.qty - 1)"
                   :disabled="isProcessing || item.qty === 1"
                 >
@@ -43,7 +43,8 @@
               </div>
               <input
                 type="text"
-                class="form-control border-0 text-center my-auto shadow-none bg-secondary px-0"
+                class="form-control form-control-sm border-0 text-center my-auto
+                shadow-none bg-secondary px-0"
                 placeholder=""
                 aria-label="Example text with button addon"
                 aria-describedby="button-addon1"
@@ -52,7 +53,7 @@
               />
               <div class="input-group-append ps-1">
                 <button
-                  class="btn btn-primary"
+                  class="btn btn-primary btn-sm"
                   @click.prevent="updateCart(item, item.qty + 1)"
                   :disabled="isProcessing || item.qty === 5"
                 >

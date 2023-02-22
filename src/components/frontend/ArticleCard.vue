@@ -11,8 +11,8 @@
         </li>
       </ol>
     </nav>
-    <div class="row justify-content-center">
-      <article class="col-8">
+    <div class="row justify-content-center my-8">
+      <article class="col-lg-8">
         <h2>{{ article.title }}</h2>
         <p>
           <small class="text-muted">{{

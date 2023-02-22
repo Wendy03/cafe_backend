@@ -1,6 +1,6 @@
+import Toast from '@/utils/Toast';
 import axios from 'axios';
 import { defineStore } from 'pinia';
-import Toast from '@/utils/Toast';
 import statusStore from '../statusStore';
 
 const status = statusStore();
@@ -38,7 +38,8 @@ export default defineStore('products', {
   },
   getters: {
     filterProducts: (state) => {
-      const currentCategory = state.products.filter((product) => (state.filterCategory === '全部商品'
+      const currentCategory = state.products.filter((product) => (state.filterCategory
+      === '全部商品'
         ? state.products
         : product.category === state.filterCategory));
       return currentCategory;

@@ -1,7 +1,6 @@
 <template>
   <div class="container mt-5">
     <VueLoading v-model:active="isLoading"></VueLoading>
-    <h2 class="mb-5">訂單資訊</h2>
     <div class="row flex-row-reverse justify-content-center pb-5">
       <OrderDetail></OrderDetail>
       <OrderForm></OrderForm>

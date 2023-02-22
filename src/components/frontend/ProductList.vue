@@ -1,5 +1,5 @@
 <template>
-  <div class="col-md-10 my-5">
+  <div class="col-lg-10 col-md-9 my-5">
     <div class="row">
       <div
         class="col-md-4 col-sm-6 mb-3 mb-4"
@@ -9,7 +9,8 @@
         <div class="card border-0 shadow-sm h-100">
           <router-link :to="`/product/${product.id}`">
             <div
-              style="height: 170px;
+              style="
+                height: 170px;
                 background-size: cover;
                 background-position: center;
               "
@@ -28,22 +29,11 @@
               {{ $filters.currency(product.price) }} 元
             </div>
           </div>
-          <div class="card-footer d-flex">
-            <router-link
-              :to="`/product/${product.id}`"
-              class="btn btn-outline-primary btn-sm"
-            >
-              <span
-                v-if="isProcessing"
-                class="spinner-border spinner-border-sm"
-                role="status"
-                aria-hidden="true"
-              ></span>
-              查看更多
-            </router-link>
+          <div class="card-footer d-grid gap-2 border-top-0">
             <button
               type="button"
-              class="btn btn-primary btn-sm ms-auto"
+              class="btn btn-primary"
+              :disabled="isProcessing"
               @click="addToCart(product.id)"
             >
               <span

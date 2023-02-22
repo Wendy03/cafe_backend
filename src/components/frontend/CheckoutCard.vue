@@ -3,7 +3,7 @@
     <form @submit.prevent="payOrder">
       <div class="card rounded-0 py-4 mb-3">
         <div class="card-header border-bottom-0 bg-white px-4 py-0">
-          <h2>Order Detail</h2>
+          <h2>訂單資訊</h2>
         </div>
         <div class="card-body px-4 py-0">
           <ul class="list-group list-group-flush">
@@ -95,6 +95,11 @@
         <button type="submit" class="btn btn-primary">確認付款去</button>
       </div>
     </form>
+    <div v-if="order.is_paid" class="text-end">
+      <router-link to="/" class="btn btn-outline-dark me-2 rounded-0 my-4">
+        回首頁
+      </router-link>
+    </div>
   </div>
 </template>
 

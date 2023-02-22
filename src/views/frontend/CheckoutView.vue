@@ -1,12 +1,20 @@
 <template>
-  <div class="container my-5">
+  <div class="container my-7">
     <div class="row">
       <div class="col-md-6">
         <h2>訂單完成</h2>
-        <p>感謝訂購</p>
-        <router-link to="/" class="btn btn-outline-dark me-2 rounded-0 mb-4">
-          回首頁
-        </router-link>
+        <div class="mt-4">
+          <h5>感謝訂購</h5>
+          <p class="ml-2">訂單完成預計1~2天出貨</p>
+          <div
+            style="
+              height: 300px;
+              background-size: cover;
+              background-position: center;
+              background-image: url('https://images.unsplash.com/photo-1495774856032-8b90bbb32b32?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80');
+            "
+          ></div>
+        </div>
       </div>
       <CheckoutCard></CheckoutCard>
     </div>
