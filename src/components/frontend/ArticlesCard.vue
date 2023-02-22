@@ -7,7 +7,7 @@
             <div class="col-md-4">
               <img
                 :src="article.imageUrl"
-                class="img-fluid rounded-start h-100"
+                class="img-fluid rounded-start h-lg-100"
                 :alt="article.title"
               />
             </div>
