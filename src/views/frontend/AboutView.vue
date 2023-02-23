@@ -1,27 +1,35 @@
 <template>
-  <div class="row justify-content-center py-5 bg-primary">
-    <img
-      src="https://images.unsplash.com/photo-1511537190424-bbbab87ac5eb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
-      alt=""
-      class="rounded-circle"
-      style="width: 170px; height: 170px; object-fit: cover"
-    />
-    <div class="col-md-4 ms-md-5">
-      <h3 style="font-family: 'Neuton', serif" class="mt-md-0 mt-3">
-        11th Street Cafe
-      </h3>
-      <p class="text-secondary">
-        “從原產地的一株咖啡樹，到烘焙成一粒粒金黃咖啡豆；堅持採購並且烘焙最高品質的咖啡，這是我們一直努力的基本原則。”
-      </p>
-      <router-link to="/products" class="btn btn-light"> 商品列表 </router-link>
+  <div class="bg-primary">
+    <div class="container">
+      <div class="row justify-content-center py-11">
+        <img
+          src="https://images.unsplash.com/photo-1511537190424-bbbab87ac5eb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
+          alt=""
+          class="rounded-circle"
+          style="width: 170px; height: 170px; object-fit: cover"
+        />
+        <div class="col-md-4 ms-md-5">
+          <h3 style="font-family: 'Neuton', serif" class="mt-md-0 mt-3">
+            11th Street Cafe
+          </h3>
+          <p class="text-secondary">
+            “從原產地的一株咖啡樹，到烘焙成一粒粒金黃咖啡豆；堅持採購並且烘焙最高品質的咖啡，這是我們一直努力的基本原則。”
+          </p>
+          <router-link to="/about" class="btn btn-light">
+            關於我們
+          </router-link>
+        </div>
+      </div>
     </div>
   </div>
-  <div class="container my-5">
-    <div class="my-7">
-      <h3 class="text-center mb-5 font-weight-bold">核心價值</h3>
+  <div class="container my-12">
+    <div class="py-md-7 py-5">
+      <h3 class="text-center mb-9 font-weight-bold">核心價值</h3>
       <div class="row">
-        <div class="col-lg-4">
-          <div class="card border-0 mb-4 position-relative position-relative h-100">
+        <div class="col-lg-4 mb-lg-0 mb-6">
+          <div
+            class="card border-0 mb-4 position-relative position-relative h-100"
+          >
             <div
               style="
                 height: 300px;
@@ -43,8 +51,10 @@
             </div>
           </div>
         </div>
-        <div class="col-lg-4">
-          <div class="card border-0 mb-4 position-relative position-relative h-100">
+        <div class="col-lg-4 mb-lg-0 mb-6">
+          <div
+            class="card border-0 mb-4 position-relative position-relative h-100"
+          >
             <div
               style="
                 height: 300px;
@@ -67,7 +77,9 @@
           </div>
         </div>
         <div class="col-lg-4">
-          <div class="card border-0 mb-4 position-relative position-relative h-100">
+          <div
+            class="card border-0 mb-4 position-relative position-relative h-100"
+          >
             <div
               style="
                 height: 300px;
@@ -91,10 +103,24 @@
       </div>
     </div>
     <hr />
-    <div class="my-7">
-      <h3 class="text-center font-weight-bold">聯絡我們</h3>
-      <p class="text-center mt-5">電話: 03-1234567</p>
-      <p class="text-center mt-2">地址: 順著咖啡香就可以找到我們</p>
+    <div class="py-md-9 py-6">
+      <div class="row">
+        <div class="col-lg-7">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d16452.417349836032!2d120.32529178750181!3d23.30272344048618!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346e85e7ac253331%3A0x30db98652bc42d9e!2z5paw54ef6LuK56uZ!5e0!3m2!1szh-TW!2stw!4v1677178339970!5m2!1szh-TW!2stw"
+            width="100%"
+            height="450"
+            style="border: 0"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+        <div class="col-lg-4">
+          <h3 class="text-center font-weight-bold mt-7">聯絡我們</h3>
+          <p class="text-center mt-5">電話: 06-1234567</p>
+          <p class="text-center mt-2">地址: 順著咖啡香就可以找到我們</p>
+        </div>
+      </div>
     </div>
   </div>
 </template>
