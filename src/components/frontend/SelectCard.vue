@@ -1,35 +1,35 @@
 <template>
-  <div class="bg-secondary text-dark py-5">
+  <div class="bg-secondary text-dark py-12">
     <div class="container my-5">
-      <h2 class="text-dark text-center mb-5">精選商品</h2>
-      <div class="row">
-        <div class="col-md-6">
+      <h2 class="text-dark text-center mb-lg-10 mb-5">精選商品</h2>
+      <div class="row mb-md-9 mb-4">
+        <div class="col-md-7">
           <img
-            src="https://images.unsplash.com/photo-1525445842399-d8a6bec24be2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
-            alt=""
-            class="img-fluid"
+            src="https://images.unsplash.com/photo-1607681034540-2c46cc71896d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&h=400&q=80"
+            alt="耶加雪菲"
+            class="img-fluid shadow rounded"
           />
         </div>
-        <div class="col-md-4 m-auto text-center">
+        <div class="col-md-5 m-auto">
           <router-link to="/product/-NLihoUv9jvcoEhDnM4C">
-            <h4 class="mt-4">耶加雪菲</h4>
+            <h4 class="mt-4 text-center">耶加雪菲</h4>
           </router-link>
           <p>
             選自衣索比亞的耶家雪菲，孔加（Konga）的G1日曬豆，除了耶加雪菲特有的花香，尾韻帶有微醺蘭姆酒香。
           </p>
         </div>
       </div>
-      <div class="row flex-row-reverse justify-content-between mt-md-0 mt-4">
-        <div class="col-md-6">
+      <div class="row flex-row-reverse justify-content-between mb-md-9 mb-4">
+        <div class="col-md-7">
           <img
-            src="https://images.unsplash.com/photo-1560824297-d27514563906?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
-            alt=""
-            class="img-fluid"
+            src="https://images.unsplash.com/photo-1613336027296-0964f455a0d0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&h=400&q=80"
+            alt="哥倫比亞"
+            class="img-fluid shadow rounded"
           />
         </div>
-        <div class="col-md-4 m-auto text-center">
+        <div class="col-md-5 m-auto">
           <router-link to="/product/-NLzhQESIKMUAxu9fUcE">
-            <h4 class="mt-4">哥倫比亞</h4>
+            <h4 class="mt-4 text-center">哥倫比亞</h4>
           </router-link>
           <p>
             來自哥倫比亞娜玲瓏（Narino）產區，海拔2,100公尺，聞得到稀有的花香味，入口時散發出熱帶水果與可可交織的濃郁口感，還帶有一點柑橘香
@@ -37,16 +37,16 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-7">
           <img
-            src="https://images.unsplash.com/photo-1525088553748-01d6e210e00b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1055&q=80"
-            alt=""
-            class="img-fluid"
+            src="https://images.unsplash.com/photo-1525088553748-01d6e210e00b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=870&h=400&q=80"
+            alt="夏威夷可娜"
+            class="img-fluid shadow rounded"
           />
         </div>
-        <div class="col-md-4 m-auto text-center">
+        <div class="col-md-5 m-auto">
           <router-link to="/product/-NLzh79SLXVzt3EaM3ij">
-            <h4 class="mt-4">夏威夷可娜</h4>
+            <h4 class="mt-4 text-center">夏威夷可娜</h4>
           </router-link>
           <p>
             獅門莊園Lion Gates Farms，以養分豐富的火山土壤及陽光、雨量、

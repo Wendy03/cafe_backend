@@ -1,7 +1,7 @@
 <template>
   <div class="bg-primary">
     <div class="container">
-      <div class="row justify-content-center py-5">
+      <div class="row justify-content-center py-11">
         <img
           src="https://images.unsplash.com/photo-1511537190424-bbbab87ac5eb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
           alt=""

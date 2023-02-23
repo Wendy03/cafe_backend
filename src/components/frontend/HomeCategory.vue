@@ -1,7 +1,7 @@
 <template>
-  <div class="bg-secondary py-5">
+  <div class="bg-secondary py-12">
     <div class="container my-5">
-      <h2 class="text-center text-dark">咖啡風味</h2>
+      <h2 class="text-center text-dark mb-lg-10 mb-5">咖啡風味</h2>
       <div class="row">
         <div class="col-lg-4 my-4">
           <div class="card border-0 mb-4 h-100">
