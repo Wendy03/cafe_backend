@@ -1,6 +1,6 @@
 <template>
   <div class="subscribe">
-    <div class="container py-12">
+    <div class="container">
       <div class="row py-7">
         <div class="col-lg-6">
           <div class="py-7">
