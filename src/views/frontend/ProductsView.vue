@@ -9,31 +9,18 @@
 </template>
 
 <script>
-import { mapState, mapActions } from 'pinia';
-import productsStore from '@/stores/frontend/productsStore';
-import statusStore from '@/stores/statusStore';
 import ProductCategory from '@/components/frontend/ProductCategory.vue';
 import ProductList from '@/components/frontend/ProductList.vue';
+import statusStore from '@/stores/statusStore';
+import { mapState } from 'pinia';
 
 export default {
   data() {
     return {};
   },
   components: { ProductCategory, ProductList },
-  methods: {
-    ...mapActions(productsStore, ['getProducts', 'changeCategory']),
-  },
   computed: {
-    ...mapState(productsStore, [
-      'products',
-      'categories',
-      'filterProducts',
-      'filterCategory',
-    ]),
-    ...mapState(statusStore, ['isLoading', 'loadingItem']),
-  },
-  mounted() {
-    this.getProducts();
+    ...mapState(statusStore, ['isLoading']),
   },
 };
 </script>

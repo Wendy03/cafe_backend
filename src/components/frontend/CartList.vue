@@ -1,10 +1,10 @@
 <template>
-  <div>
+  <div class="col-md-6">
     <div v-if="cart.carts?.length">
       <div class="d-flex justify-content-between mb-5">
         <h2 class="mt-2 text-brown font-weight-bold">購物車</h2>
         <a href="#" class="fs-3" @click.prevent="deleteAllCarts">
-         <i class="bi bi-x-lg"></i>
+          <i class="bi bi-x-lg"></i>
         </a>
       </div>
       <div
@@ -43,8 +43,8 @@
               </div>
               <input
                 type="text"
-                class="form-control form-control-sm border-0 text-center my-auto
-                shadow-none bg-secondary px-0"
+                class="form-control form-control-sm border-0
+                text-center my-auto shadow-none bg-secondary px-0"
                 placeholder=""
                 aria-label="Example text with button addon"
                 aria-describedby="button-addon1"
@@ -79,32 +79,35 @@
         <p class="mb-0 h4 fw-bold">總計</p>
         <p class="mb-0 h4 fw-bold">NT${{ cart.final_total }}</p>
       </div>
-      <RouterLink
+      <router-link
         to="/order"
         class="btn btn-primary btn-block mt-4 rounded-0 py-3"
-        >確認訂單</RouterLink
+        >確認訂單</router-link
       >
     </div>
     <div v-else>
       <h4 class="mt-5">購物車無商品，快去逛逛</h4>
-      <RouterLink class="btn btn-primary mt-5" to="/products"
-        >選購去</RouterLink
+      <router-link class="btn btn-primary mt-5" to="/products"
+        >選購去</router-link
       >
     </div>
+  </div>
+  <div v-if="!cart.carts?.length" class="mt-7">
+    <HomeCategory></HomeCategory>
   </div>
 </template>
 
 <script>
-import { RouterLink } from 'vue-router';
-import { mapState, mapActions } from 'pinia';
+import HomeCategory from '@/components/frontend/HomeCategory.vue';
 import cartStore from '@/stores/frontend/cartStore';
 import statusStore from '@/stores/statusStore';
+import { mapActions, mapState } from 'pinia';
 
 export default {
   data() {
     return {};
   },
-  components: { RouterLink },
+  components: { HomeCategory },
   methods: {
     ...mapActions(cartStore, [
       'getCarts',

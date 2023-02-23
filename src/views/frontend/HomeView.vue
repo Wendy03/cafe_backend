@@ -9,10 +9,10 @@
 </template>
 
 <script>
-import BannerCard from '@/components/frontend/BannerCard.vue';
-import SelectCardVue from '@/components/frontend/SelectCard.vue';
 import AboutCard from '@/components/frontend/AboutCard.vue';
+import BannerCard from '@/components/frontend/BannerCard.vue';
 import HomeCategory from '@/components/frontend/HomeCategory.vue';
+import SelectCardVue from '@/components/frontend/SelectCard.vue';
 import SubscribeCard from '@/components/frontend/SubscribeCard.vue';
 
 export default {

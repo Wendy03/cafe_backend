@@ -3,6 +3,7 @@
     <ul class="list-group sticky-top">
       <li
         class="list-group-item"
+        style="cursor: pointer"
         v-for="category in categories"
         :key="category"
         @click.prevent="changeCategory(category)"
@@ -14,8 +15,8 @@
   </div>
 </template>
 <script>
-import { mapState, mapActions } from 'pinia';
 import productsStore from '@/stores/frontend/productsStore';
+import { mapActions, mapState } from 'pinia';
 
 export default {
   data() {

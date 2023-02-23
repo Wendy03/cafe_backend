@@ -7,7 +7,7 @@
             <div class="col-md-4">
               <img
                 :src="article.imageUrl"
-                class="img-fluid rounded-start h-lg-100"
+                class="img-fluid rounded-start h-md-100"
                 :alt="article.title"
               />
             </div>
@@ -17,7 +17,7 @@
                 <div class="card-text">
                   <div v-html="article.description"></div>
                 </div>
-                <div class="text-end mt-5">
+                <div class="text-end mt-lg-5">
                   <router-link
                     :to="`/article/${article.id}`"
                     v-if="article.isPublic"
@@ -35,9 +35,9 @@
 </template>
 
 <script>
-import { mapState, mapActions } from 'pinia';
 import articlesStore from '@/stores/frontend/articlesStore';
 import statusStore from '@/stores/statusStore';
+import { mapActions, mapState } from 'pinia';
 
 export default {
   data() {
